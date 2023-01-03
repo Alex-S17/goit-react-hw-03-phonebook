@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0 15px 15px;
+  
+  font-size: 22px;
+  font-weight: 600;
+  background-color: antiquewhite;
+  
+  border: 2px solid grey;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.label {
+  margin-bottom: 15px;
+}
+
+.nameInput {
+  display: flex;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 17px;
+}
+
+.addBatton {
+  width: 130px;
+  margin-top: 30px;
+  padding: 5px 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  background-color: rgb(218, 208, 208);
+  border: 1px solid rgb(175, 173, 173);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.addBatton:hover {
+  cursor: pointer;
+}
