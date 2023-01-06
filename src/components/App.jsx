@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
-import { ContactsList } from "./ContactList";
-import { Form } from "./Form";
-import { Filter } from "./Filter";
+import { ContactsList } from "./ContactList/ContactList";
+import { Form } from "./Form/Form";
+import { Filter } from "./Filter/Filter";
 import css from "./App.module.css";
 
 export class App extends Component {
@@ -16,6 +16,20 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contactsJSON = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contactsJSON);    
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts, });
+    };
+  };
+  
+  componentDidUpdate (prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    };
+  };
+  
   handleFormData = stateFromForm => {
     const { contacts } = this.state;
     const { name, number } = stateFromForm;
@@ -76,5 +90,26 @@ export class App extends Component {
 
 
 
+  // ALTERNATIVE VARIANT OF componentDidMount()
+// componentDidMount() {
+  //   const contactsJSON = localStorage.getItem('contacts');
+  //   console.log(contactsJSON);
+  //   const parsedContacts = JSON.parse(contactsJSON);
+  //   console.log(parsedContacts);
 
+  //   if (!contactsJSON || contactsJSON.length === 0) {
+  //     this.setState({
+  //       contacts: [
+  //         { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+  //         { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+  //         { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+  //         { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+  //       ],
+  //     });
+  //   }
+      
+  //   if (parsedContacts) {
+  //     this.setState({ contacts: parsedContacts, });
+  //   }      
+  // };
 

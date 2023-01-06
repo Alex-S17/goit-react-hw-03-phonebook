@@ -1,7 +1,7 @@
 // import { Component } from "react";
 import React from "react";
 import PropTypes from "prop-types";
-import { ContactItem } from "./ContactItem";
+import { ContactItem } from "../ContactItem/ContactItem";
 import css from "./ContactsList.module.css";
 
 export const ContactsList = ({ arrayOfContacts, onDeleteContact }) => {
